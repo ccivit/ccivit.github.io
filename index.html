@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carles Civit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="lock-screen">
+    <div class="lock-box">
+      <div class="lock-label">Access</div>
+      <h1 class="lock-title">Enter password to view portfolio</h1>
+      <form id="unlock-form" autocomplete="off">
+        <input id="password-input" type="password" placeholder="Password" autofocus />
+        <button type="submit">Unlock</button>
+      </form>
+      <div id="unlock-error"></div>
+    </div>
+  </div>
+
+  <main id="site-content" hidden></main>
+
+  <script src="encrypted.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

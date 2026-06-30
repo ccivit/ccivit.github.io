@@ -1,0 +1,229 @@
+:root {
+  --bg: #faf9f6;
+  --ink: #1a1a18;
+  --muted: #6b6a63;
+  --line: #dddad2;
+  --accent: #c1502e;
+  --card: #f2f0ea;
+  --max: 720px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "IBM Plex Mono", "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--ink); text-decoration-color: var(--accent); text-underline-offset: 3px; }
+a:hover { color: var(--accent); }
+
+/* ---------- Lock screen ---------- */
+#lock-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.lock-box {
+  width: 100%;
+  max-width: 360px;
+}
+
+.lock-label {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.lock-title {
+  font-size: 22px;
+  margin: 0 0 24px;
+}
+
+#unlock-form {
+  display: flex;
+  border: 1px solid var(--line);
+  background: var(--card);
+}
+
+#password-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 12px 14px;
+  font: inherit;
+  color: var(--ink);
+  outline: none;
+}
+
+#unlock-form button {
+  border: none;
+  border-left: 1px solid var(--line);
+  background: var(--ink);
+  color: var(--bg);
+  padding: 12px 18px;
+  font: inherit;
+  cursor: pointer;
+}
+
+#unlock-form button:hover { background: var(--accent); }
+
+#unlock-error {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--accent);
+  min-height: 1.4em;
+}
+
+/* ---------- Site content ---------- */
+#site-content {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 64px 24px 96px;
+}
+
+.hero-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+h1 {
+  font-size: 28px;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.status {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 3px 8px;
+}
+
+.role {
+  margin: 10px 0 0;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.summary {
+  margin: 18px 0 0;
+  max-width: 60ch;
+}
+
+.meta-row {
+  margin-top: 22px;
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+section {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+h2 {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tag {
+  font-size: 12px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  padding: 1px 6px;
+}
+
+ul.log, .role-block ul, ul.pub-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+ul.log li, .role-block ul li, ul.pub-list li {
+  margin-bottom: 10px;
+}
+
+.role-block { margin-bottom: 32px; }
+.role-block:last-child { margin-bottom: 0; }
+
+.role-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.role-head h3 { margin: 0; font-size: 16px; }
+
+.date { font-size: 12px; color: var(--muted); }
+
+.role-title {
+  margin: 4px 0 12px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.edu-grid h3 { font-size: 15px; margin: 0 0 4px; }
+.edu-grid p { margin: 0; font-size: 13px; color: var(--muted); }
+
+.interest-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.interest-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 16px;
+}
+
+.interest-card h3 { margin: 0 0 8px; font-size: 14px; }
+.interest-card p { margin: 0; font-size: 13px; color: var(--muted); }
+
+ul.pub-list { font-size: 13px; color: var(--muted); }
+
+footer {
+  margin-top: 64px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+@media (max-width: 600px) {
+  .edu-grid, .interest-grid { grid-template-columns: 1fr; }
+  #site-content { padding: 40px 18px 64px; }
+}
