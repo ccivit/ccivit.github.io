@@ -34,12 +34,28 @@ async function tryUnlock(password) {
   return new TextDecoder().decode(decrypted);
 }
 
+function initTabs() {
+  const tabs = document.getElementById("tabs");
+  if (!tabs) return;
+  tabs.addEventListener("click", (e) => {
+    const btn = e.target.closest(".tab-btn");
+    if (!btn) return;
+    const target = btn.dataset.tab;
+
+    tabs.querySelectorAll(".tab-btn").forEach((b) => b.classList.toggle("active", b === btn));
+    document.querySelectorAll(".tab-panel").forEach((panel) => {
+      panel.classList.toggle("active", panel.id === `panel-${target}`);
+    });
+  });
+}
+
 function showSite(html) {
   document.getElementById("lock-screen").remove();
   const main = document.getElementById("site-content");
   main.innerHTML = html;
   main.hidden = false;
   document.title = "Carles Civit — Portfolio";
+  initTabs();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
