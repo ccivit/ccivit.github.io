@@ -127,6 +127,105 @@ h1 {
   max-width: 60ch;
 }
 
+/* ---------- Tabs ---------- */
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-top: 32px;
+  border-bottom: 1px solid var(--line);
+}
+
+.tab-btn {
+  font: inherit;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--muted);
+  padding: 10px 4px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.tab-btn:hover { color: var(--ink); }
+
+.tab-btn.active {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+.tab-panel section:first-child { margin-top: 32px; padding-top: 0; border-top: none; }
+
+.tab-intro {
+  max-width: 64ch;
+  color: var(--muted);
+}
+
+.sub-head {
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 32px 0 12px;
+}
+
+/* ---------- Photo grid ---------- */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.photo-card { margin: 0; }
+
+.photo-placeholder {
+  aspect-ratio: 4 / 3;
+  background: var(--card);
+  border: 1px dashed var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.photo-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  border: 1px solid var(--line);
+}
+
+.photo-card figcaption {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* ---------- Video list ---------- */
+.video-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+}
+
+.video-list li {
+  padding: 8px 0;
+  border-top: 1px solid var(--line);
+}
+
+.video-list li:before {
+  content: "▶ ";
+  color: var(--accent);
+}
+
 .meta-row {
   margin-top: 22px;
   font-size: 13px;
@@ -198,21 +297,6 @@ ul.log li, .role-block ul li, ul.pub-list li {
 .edu-grid h3 { font-size: 15px; margin: 0 0 4px; }
 .edu-grid p { margin: 0; font-size: 13px; color: var(--muted); }
 
-.interest-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.interest-card {
-  background: var(--card);
-  border: 1px solid var(--line);
-  padding: 16px;
-}
-
-.interest-card h3 { margin: 0 0 8px; font-size: 14px; }
-.interest-card p { margin: 0; font-size: 13px; color: var(--muted); }
-
 ul.pub-list { font-size: 13px; color: var(--muted); }
 
 footer {
@@ -224,6 +308,8 @@ footer {
 }
 
 @media (max-width: 600px) {
-  .edu-grid, .interest-grid { grid-template-columns: 1fr; }
+  .edu-grid { grid-template-columns: 1fr; }
+  .photo-grid { grid-template-columns: repeat(2, 1fr); }
+  .tabs { overflow-x: auto; white-space: nowrap; }
   #site-content { padding: 40px 18px 64px; }
 }
